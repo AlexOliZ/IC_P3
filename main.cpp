@@ -1,8 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <bitset>
-#include <string>
-#include <map>
 #include "fcm.h"
 /*
  * Develop a program, named fcm, with the aim of collecting 
@@ -19,41 +14,24 @@ struct stats{
 };
 */
 
+// g++ main.cpp fcm.cpp -o exec_fcm
+
 int main(int argc, char *argv[])
 {
     using namespace std;
-    if(argc < 4){
-        cout << "missing arguments -> ./a.out <k> <a>" << endl;
+    if(argc < 5){
+        cout << "missing arguments -> ./a.out <filename> <language (pt/en)> <k> <a>" << endl;
         return -1;
     }
 
     //string filename = argv[1];
-    ifstream readfile = ifstream(argv[1], ios::binary);
+    string fname = argv[1];
+    string language = argv[2];
     // k -> order model; a -> smoothing parameter;
-    int k=atoi(argv[2]), a=atoi(argv[3]),i;
-    map<string,unsigned int> sequence_table;
-    string aux_sequence;
-    char byte;
-    char* letters_history = (char*) malloc(sizeof(char)*k);
-    unsigned int history_pointer=0;
+    int k=atoi(argv[3]), alpha=atoi(argv[4]),i;
     
-    while(readfile.peek() != EOF )
-    {
-        
-        readfile.read((char*)&byte,1);
-        letters_history[history_pointer] = byte;
-        aux_sequence = "";
-        // ter cuidado que nas primeiras k letras não vai ter k letras na 
-        // sequence_table para adicionar ao histograma  
-        for(i=0; i<k; i++)
-        {   
-            aux_sequence += letters_history[(history_pointer+i)%k];
-            if(sequence_table.find(aux_sequence) != sequence_table.end())
-                sequence_table[aux_sequence] += 1;
-            else
-                sequence_table[aux_sequence] = 1;
-        }
-        history_pointer = (history_pointer+1) % k;
-    }
+    fcm fcm_table = fcm(k,alpha,language);
+    fcm_table.read_table((char*) fname.data());
+
     return 0;
 }
