@@ -6,17 +6,47 @@ void fcm::read_table(char* fname)
 {
     // antes de começar a ler o novo histograma
     // dar load ao ficheiro se tiver a tabela escrita
-    //ifstream readtable = ifstream((char*)filename.data(), ios::binary);
-    
-    string path = "./"+ language + "/" +fname;
-    cout << path << endl;
-    ifstream readfile = ifstream((char*) path.data(), ios::binary);
-    map<string,map<char,unsigned int>> sequence_table;
+    int i;    
+    char byte,letter;
+    string number;
     string aux_sequence;
-    char byte;
+    map<string,map<char,unsigned int>> sequence_table;
+    ifstream readtable = ifstream((char*)filename.data(), ios::binary);
+    while(1)
+    {
+        if(readtable.eof()){
+            break;
+        }
+        
+        aux_sequence = "";
+        number = "";
+
+        for(i=0; i<k; i++){
+            readtable.read(&byte,1);
+            aux_sequence += byte;
+        }
+        readtable.read(&byte,1);
+        readtable.read(&letter,1);
+        readtable.read(&byte,1);
+        while(byte  != '\n'){
+            readtable.read(&byte,1);
+            number += byte;
+            if(readtable.eof())
+                break;
+        
+        }
+        sequence_table[aux_sequence][letter] = atoi(number.data());
+        cout << (aux_sequence + " " + letter + " " + number) << endl;
+        //readtable.read(&byte,1);
+    }
+
+
+    string path = "./"+ language + "/" +fname;
+    ifstream readfile = ifstream((char*) path.data(), ios::binary);
+    
+    
     char* letters_history = (char*) malloc(sizeof(char)*k);
     unsigned int history_pointer=k-1;
-    int i;
     
     // preencher os primeiros k-1 chars no circular_buffer
     // 
@@ -64,7 +94,7 @@ void fcm::read_table(char* fname)
     {
         for(map<char,unsigned int>::iterator char_iter = sequence_table[string_iter->first].begin(); char_iter != sequence_table[string_iter->first].end(); ++char_iter)
         {
-            writetable << string_iter->first +' '+ char_iter->first +' '+ to_string(char_iter->second) +'\n';
+            writetable << string_iter->first+ " " +char_iter->first+" " +to_string(char_iter->second) +'\n';
         }
     }
 }

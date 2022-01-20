@@ -15,7 +15,7 @@ struct stats{
 */
 
 // g++ main.cpp fcm.cpp -o exec_fcm
-
+// ./exec_fcm test.txt en 3 0
 int main(int argc, char *argv[])
 {
     using namespace std;
