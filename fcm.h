@@ -7,6 +7,7 @@
 #include <bitset>
 #include <string>
 #include <map>
+#include "math.h"
 
 class fcm
 {
