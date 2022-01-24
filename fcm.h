@@ -8,6 +8,7 @@
 #include <string>
 #include <map>
 #include "math.h"
+#include <set>
 
 class fcm
 {
@@ -16,8 +17,10 @@ class fcm
     {
         this->k = k;
         this->alpha = alpha;
-        filename = "./"+ language + "/table.txt";
+        filename = "./"+ language + "/table_"+std::to_string(k)+".txt";
         this->language = language;
+        std::ofstream writetable;
+        writetable.open((char*)filename.data());
         //std::cout << filename << std::endl;
     };
     fcm(){};

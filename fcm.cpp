@@ -11,11 +11,12 @@ void fcm::read_table(char* fname)
     string number;
     string aux_sequence;
     map<string,map<char,unsigned int>> sequence_table;
+    // set<char> letters_list;
     ifstream readtable = ifstream((char*)filename.data(), ios::binary);
     while(1)
     {
         if(readtable.eof()){
-            break;
+             break;
         }
         
         aux_sequence = "";
@@ -63,7 +64,10 @@ void fcm::read_table(char* fname)
             break;
         }
         readfile.read((char*) &byte,1);
-        if(byte != '\n' && byte != '\t'){
+        // só lê letras entre A-Z e a-z ou space
+        // space -> 0x20            A-Z                                 a-z
+        if(byte ==0x20 || (byte >= 0x41 && byte <= 0x5A) || (byte >= 0x61 && byte <= 0x7A)){
+        //if(byte != '\n' && byte != '\t'){
             // ter cuidado que nas primeiras k letras não vai ter k letras na 
             // sequence_table para adicionar ao histograma  
             aux_sequence = "";

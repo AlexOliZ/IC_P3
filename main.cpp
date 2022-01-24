@@ -13,7 +13,6 @@ struct stats{
     unsigned int count=0;
 };
 */
-
 // g++ main.cpp fcm.cpp -o exec_fcm
 // ./exec_fcm test.txt en 3 0
 int main(int argc, char *argv[])
