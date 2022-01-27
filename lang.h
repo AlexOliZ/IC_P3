@@ -9,21 +9,30 @@
 #include <map>
 #include "math.h"
 #include <set>
+#include "fcm.h"
 
 class lang
 {
     public:
-    lang(std::string table, std::string language)
+    lang(char* table, char* language_file, unsigned int a, unsigned int k)
     {
-        
+        table_file = table;
+        lang_file = language_file;
+        alpha = a;
+        this->k = k;
     };
     lang(){};
 
-    void check_table(char* fname);
+    unsigned int check_compression_size(char* fname);
+    bool set_file(char* filename);
 
     private:
-        std::string table_file;
-        std::string lang_file;
+        char* table_file;
+        char* lang_file;
+        unsigned int alpha;
+        std::ifstream readfile;
+        std::ifstream readtable;
+        unsigned int k;
 };
 
 

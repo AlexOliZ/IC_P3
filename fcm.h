@@ -2,8 +2,8 @@
 #define H_FCM
 
 #include <iostream>
-#include <fstream>
 #include <iostream>
+#include <fstream>
 #include <bitset>
 #include <string>
 #include <map>
@@ -20,7 +20,9 @@ class fcm
         filename = "./"+ language + "/table_"+std::to_string(k)+".txt";
         this->language = language;
         std::ofstream writetable;
-        writetable.open((char*)filename.data());
+        writetable = std::ofstream((char*)filename.data(), std::ios::binary|std::ios_base::app);
+        writetable.close();
+        
         //std::cout << filename << std::endl;
     };
     fcm(){};
