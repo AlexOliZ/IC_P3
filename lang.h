@@ -10,14 +10,14 @@
 #include "math.h"
 #include <set>
 #include "fcm.h"
-
+//static char* languages[11] = {"en","pt","french","spannish","german","danish","greek","italian","finnish","danish","dutch"};
 class lang
 {
     public:
-    lang(char* table, char* language_file, unsigned int k, double a)
+    lang(char* file, char* table, unsigned int k, double a)
     {
+        lang_file = file;
         table_file = table;
-        lang_file = language_file;
         alpha = a;
         this->k = k;
     };
