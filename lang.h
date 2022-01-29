@@ -14,7 +14,7 @@
 class lang
 {
     public:
-    lang(char* table, char* language_file, unsigned int a, unsigned int k)
+    lang(char* table, char* language_file, unsigned int k, double a)
     {
         table_file = table;
         lang_file = language_file;
@@ -24,12 +24,13 @@ class lang
     lang(){};
 
     unsigned int check_compression_size(char* fname);
+    char* find_lang(char* fname);
     bool set_file(char* filename);
 
     private:
         char* table_file;
         char* lang_file;
-        unsigned int alpha;
+        double alpha;
         std::ifstream readfile;
         std::ifstream readtable;
         unsigned int k;

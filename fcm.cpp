@@ -18,7 +18,7 @@ void fcm::read_table(char* fname)
         if(readtable.eof()){
              break;
         }
-        
+        //cout << readtable.good() << endl;
         aux_sequence = "";
         number = "";
         if(readtable.peek() == -1){
@@ -43,8 +43,7 @@ void fcm::read_table(char* fname)
         cout << (aux_sequence + " " + letter + " " + number) << endl;
         //readtable.read(&byte,1);
     }
-
-
+    
     string path = "./"+ language + "/" +fname;
     ifstream readfile = ifstream((char*) path.data(), ios::binary);
     
@@ -65,17 +64,24 @@ void fcm::read_table(char* fname)
         }
         readfile.read((char*) &byte,1);
         // só lê letras entre A-Z e a-z ou space
-        // space -> 0x20            A-Z                                 a-z
-        if(byte ==0x20 || (byte >= 0x41 && byte <= 0x5A) || (byte >= 0x61 && byte <= 0x7A)){
+        // space -> 0x20            A-Z                                 a-z                     letras com acentos
+        //cout << byte << endl;
+        if(byte ==0x20 || (byte >= 0x41 && byte <= 0x5A) || (byte >= 0x61 && byte <= 0x7A) || (byte >= 0xC0)){
         //if(byte != '\n' && byte != '\t'){
             // ter cuidado que nas primeiras k letras não vai ter k letras na 
             // sequence_table para adicionar ao histograma  
             aux_sequence = "";
-            for(i=0; i<k; i++)
+            //cout << history_pointer;
+            for(i=1; i<=k; i++)
             {   
+                //cout << history_pointer << endl;
+                //cout << letters_history[i] << endl;
                 aux_sequence += letters_history[(history_pointer+i)%k];
+                //cout << ((history_pointer+i)%k);
+                //aux_sequence += letters_history[(history_pointer+i+1)%k];
             }
             
+            //cout << byte << endl;
             if(sequence_table.find(aux_sequence) != sequence_table.end()){
                 if(sequence_table[aux_sequence].find(byte) != sequence_table[aux_sequence].end())
                     sequence_table[aux_sequence][byte] += 1;
@@ -85,7 +91,6 @@ void fcm::read_table(char* fname)
                 sequence_table[aux_sequence] = map<char,unsigned int>();
                 sequence_table[aux_sequence][byte] = 1;
             }
-
             history_pointer = (history_pointer+1) % k;
             letters_history[history_pointer] = byte;
         }

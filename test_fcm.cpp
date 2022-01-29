@@ -15,11 +15,14 @@ struct stats{
 */
 // g++ test_fcm.cpp fcm.cpp -o exec_fcm
 // ./exec_fcm test.txt en 3 0
+// ./exec_fcm europarl-v7.it-en.en en 3 0
+// ./exec_fcm txt1.utf8 en 3 0
+// ./exec_fcm txt1.utf8 pt 3 0
 int main(int argc, char *argv[])
 {
     using namespace std;
     if(argc < 5){
-        cout << "missing arguments -> ./a.out <filename> <language (pt/en)> <k> <a>" << endl;
+        cout << "missing arguments -> ./exec_fcm.out <filename> <language (pt/en)> <k> <a>" << endl;
         return -1;
     }
 
