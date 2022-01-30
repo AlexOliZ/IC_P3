@@ -26,6 +26,9 @@ class lang
     unsigned int check_compression_size(char* fname);
     char* find_lang(char* fname);
     bool set_file(char* filename);
+    void get_sequences(char* fname);
+    void read_table();
+    double check_compression(char* fname, bool read_sequences);
 
     private:
         char* table_file;
@@ -34,7 +37,9 @@ class lang
         std::ifstream readfile;
         std::ifstream readtable;
         unsigned int k;
-        const char* languages[11] = {"en","pt","french","spannish","german","danish","greek","italian","finnish","danish","dutch"};
+        const char* languages[11] = {"en","pt","french","spanish","german","danish","greek","italian","finnish","danish","dutch"};
+        std::map<std::string,std::map<char,unsigned int>> table;
+        std::map<std::string,std::map<char,unsigned int>> file_info;
 };
 
 

@@ -64,11 +64,8 @@ void fcm::read_table(char* fname)
         // space -> 0x20            A-Z                                 a-z                     letras com acentos
         if(byte == '\n' || byte == '\t' || byte == '\r')
             byte = 0x20;
-        if(byte ==0x20 || (byte >= 0x41 && byte <= 0x5A) || (byte >= 0x61 && byte <= 0x7A) || (byte >= 0xC0)){
-            // ter cuidado que nas primeiras k letras não vai ter k letras na 
-            // sequence_table para adicionar ao histograma  
+        if(byte==0x27 || byte==0x2D || byte ==0x20 || (byte >= 0x41 && byte <= 0x5A) || (byte >= 0x61 && byte <= 0x7A) || (byte >= 0xC0)){
             aux_sequence = "";
-            //cout << history_pointer;
             for(i=1; i<=k; i++)
             {   
                 aux_sequence += letters_history[(history_pointer+i)%k];
@@ -89,57 +86,22 @@ void fcm::read_table(char* fname)
         }
     }
 
-    // calcular a prob para cada char seguido de uma sequencia
-    // H_sequence = -sum(p_letter * log(p_letter))
-    // M_sequence = sum(H_sequence*P(sequence)), c -> sequence
-    // nº de sequencias -> sequence_table.size();
-    // primeiro calcular o nº total de sequencias ... para fazer as probs
-    // depois calcular a  entropia
     readtable.close();
     readfile.close();
 
-    //for(map<string,map<char,unsigned int>>::iterator string_iter = sequence_table.begin(); string_iter != sequence_table.end(); ++string_iter)
-    //    for(map<char,unsigned int>::iterator char_iter = sequence_table[string_iter->first].begin(); char_iter != sequence_table[string_iter->first].end(); ++char_iter)
-    //        count_seq += char_iter->second;
-    // escrever num ficheiro e calcular a entropia
     cout << "count_seq: " << count_seq << endl;
-    unsigned int sum_sequence;        // nº de ocorrencias de uma sequencia ... somar para todas as letras
-    //double entropy=0,local_entropy=0,pi;
+    
     ofstream writetable;
     writetable.clear();
     writetable.open((char*)filename.data());
-    //map<string,unsigned int>> entropy_table; 
+    
     cout << "___________________________" << endl;
     for(map<string,map<char,unsigned int>>::iterator string_iter = sequence_table.begin(); string_iter != sequence_table.end(); ++string_iter)
     {
-        //sum_sequence = 0;
-        //local_entropy=0;
-        // calcular o total de combinações com a seq
         for(map<char,unsigned int>::iterator char_iter = sequence_table[string_iter->first].begin(); char_iter != sequence_table[string_iter->first].end(); ++char_iter)
         {
-            //cout << char_iter->first << endl;
-            //cout << char_iter->second << endl;
-            //sum_sequence += char_iter->second;
             writetable << string_iter->first+ " " +char_iter->first+" " +to_string(char_iter->second) +'\n';
         }
-        //cout << "sum_sequence: " << sum_sequence << endl;
-        // calcular a entropia para uma sequencia
-        /*
-        for(map<char,unsigned int>::iterator char_iter = sequence_table[string_iter->first].begin(); char_iter != sequence_table[string_iter->first].end(); ++char_iter)
-        {
-            pi = ((double)char_iter->second)/((double)sum_sequence);
-            cout << "sum: " << sum_sequence << endl;
-            cout << "char: " << char_iter->second << endl;
-            cout << "pi: " << (double)pi << endl;
-            cout << ((double)char_iter->second)/((double)sum_sequence) << endl;
-            local_entropy -= (double)pi*log(pi);
-        }
-        //cout << "b";
-        cout << "local_entropy: " << local_entropy << endl;
-        entropy += local_entropy*((double)sum_sequence/(double)count_seq);
-        //cout << "c" << endl;
-        */
     }
-    //cout << "entropy: " << entropy << endl;
     writetable.close();
 }
