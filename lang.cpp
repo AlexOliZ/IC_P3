@@ -109,8 +109,26 @@ unsigned int lang::check_compression_size(char* fname)
     //for(map<string,map<char,unsigned int>>::iterator string_iter = sequence_table.begin(); string_iter != sequence_table.end(); ++string_iter)
     //    for(map<char,unsigned int>::iterator char_iter = sequence_table[string_iter->first].begin(); char_iter != sequence_table[string_iter->first].end(); ++char_iter)
     //        cout << string_iter -> first << " " << char_iter -> first << " " << char_iter->second << endl;
-
-
+    
+    double global_entropy = 0,prob_ctx;
+    unsigned int sum_table;
+    for(map<string,map<char,unsigned int>>::iterator string_iter = file_table.begin(); string_iter != file_table.end(); ++string_iter)
+    {
+        prob_ctx = 0;
+        sum_table = 0;
+        for(map<char,unsigned int>::iterator char_iter = sequence_table[string_iter->first].begin(); char_iter != sequence_table[string_iter->first].end(); ++char_iter)
+        {
+            sum_table += char_iter->second;
+        }
+        for(map<char,unsigned int>::iterator char_iter = sequence_table[string_iter->first].begin(); char_iter != sequence_table[string_iter->first].end(); ++char_iter)
+        {
+            //cout << char_iter -> second << endl;
+            global_entropy -= log2(((double)(char_iter -> second + alpha)/((double)(sum_table + 3*alpha))));
+        }
+    }
+    
+    //cout << global_entropy << endl;
+    /*
     double compression_size = 0,prob_ctx,local_entropy,global_entropy=0;
     unsigned int sum_table,count_ctx;
     for(map<string,map<char,unsigned int>>::iterator string_iter = file_table.begin(); string_iter != file_table.end(); ++string_iter)
@@ -135,12 +153,33 @@ unsigned int lang::check_compression_size(char* fname)
         {
             //cout <<"val " <<char_iter->second << endl;
             prob_ctx = ((double)(char_iter -> second + alpha)/((double)(sum_table + 3*alpha)));
-            local_entropy -= prob_ctx*log(prob_ctx);
+            local_entropy -= prob_ctx*log2(prob_ctx);
         }
         global_entropy += local_entropy * ((double)count_ctx/(double)count_seq);
         //cout << global_entropy << endl;
     }
+    */
     cout << global_entropy << endl;
     cout << count_seq << endl;
-    return global_entropy * count_seq;
+    return global_entropy;
+}
+
+char* lang::find_lang(char*fname)
+{
+    char* language;
+    unsigned int compression_size;
+    unsigned int min_size=0xffffffff;
+
+    for(int i=0 ; i<NUM_LANGS ; i++)
+    {
+        string lang_name(languages[i]);
+        lang_file = (char*)("./"+lang_name+"/table_"+to_string(k)+".txt").data();
+        compression_size = check_compression_size(fname);
+        if(compression_size<min_size)
+        {
+            min_size = compression_size;
+            language = (char*)(languages[i]);
+        } 
+    }
+    return language;
 }
