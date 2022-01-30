@@ -8,10 +8,8 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    //string filename = argv[1];
     string fname = argv[1];
     string language = argv[2];
-    // k -> order model; a -> smoothing parameter;
     unsigned int k=atoi(argv[3]);
     double alpha=stod(argv[4]);
     
