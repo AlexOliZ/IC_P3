@@ -103,7 +103,8 @@ void lang::get_sequences(char* fname)
 
 double lang::check_compression(char* fname, bool read_sequences)
 {
-    get_sequences(fname);
+    if(read_sequences)
+        get_sequences(fname);
     read_table();
     double global_entropy=0,pi;
     unsigned int sum_table;
@@ -121,7 +122,7 @@ double lang::check_compression(char* fname, bool read_sequences)
             if(table[string_iter->first].find(char_iter->first) != table[string_iter->first].end())
                 pi = ((double)table[string_iter->first][char_iter->first]+alpha)/((double)sum_table+NUM_CHARS*alpha);
             else
-                pi = alpha/(3*alpha+(double)sum_table);
+                pi = alpha/(NUM_CHARS*alpha+(double)sum_table);
             //cout << pi << endl;
             //if(pi>0 && pi<=1)
             global_entropy -= log2(pi);
@@ -266,10 +267,10 @@ unsigned int lang::check_compression_size(char* fname)
             if(sequence_table[string_iter->first].find(char_iter->first) != sequence_table[string_iter->first].end())
                 pi = ((double)sequence_table[string_iter->first][char_iter->first]+alpha)/((double)sum_table+NUM_CHARS*alpha);
             else
-                pi = alpha/(3*alpha+(double)sum_table);
+                pi = alpha/(NUM_CHARS*alpha+(double)sum_table);
             
-            if(pi>1 || pi<0)
-                cout << pi << endl;
+            //if(pi>1 || pi<0)
+            //    cout << pi << endl;
             global_entropy -= log2(pi);
         }
     }

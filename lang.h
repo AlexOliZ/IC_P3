@@ -10,7 +10,7 @@
 #include "math.h"
 #include <set>
 #include "fcm.h"
-#define NUM_LANGS 11
+#define NUM_LANGS 10
 #define NUM_CHARS 122
 class lang
 {
@@ -38,7 +38,7 @@ class lang
         std::ifstream readfile;
         std::ifstream readtable;
         unsigned int k;
-        const char* languages[11] = {"en","pt","french","spanish","german","danish","greek","italian","finnish","danish","dutch"};
+        const char* languages[10] = {"en","pt","french","spanish","german","danish","greek","italian","finnish","dutch"};
         std::map<std::string,std::map<char,unsigned int>> table;
         std::map<std::string,std::map<char,unsigned int>> file_info;
 };

@@ -1,5 +1,5 @@
 #include "lang.h"
-// ./exec_find_lang pt/txt2.txt 3 0
+// ./exec_find_lang pt/txt2.txt 3 0.01
 int main(int argc, char *argv[])
 {
     using namespace std;

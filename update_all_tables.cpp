@@ -1,25 +1,11 @@
 #include "fcm.h"
-/*
- * Develop a program, named fcm, with the aim of collecting 
- * statistical information about texts, using finite-context 
- * models. The order of the model, k, as well as the smoothing 
- * parameter, α, should be parameters passed to the program. 
- * This program should provide the entropy of the text, 
- * as estimated by the model.
-*/
-/*
-struct stats{
-    std::string sequence;
-    unsigned int count=0;
-};
-*/
-// g++ test_fcm.cpp fcm.cpp -o exec_fcm
 
+using namespace std;
 int main(int argc, char *argv[])
 {
     using namespace std;
     if(argc < 5){
-        cout << "missing arguments -> ./exec_fcm.out <filename> <language> <k> <a>" << endl;
+        cout << "missing arguments -> ./exec_fcm.out <k> <a>" << endl;
         return -1;
     }
 

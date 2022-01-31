@@ -15,6 +15,6 @@ int main(int argc, char *argv[])
     
     lang lang_test = lang((char*)fname.data(),(char*)language.data(),k,alpha);
     unsigned int compression_size = lang_test.check_compression_size((char*)language.data());
-    cout << "compression_size -> " << compression_size << endl;
+    cout << "compression -> " << compression_size << endl;
     return 0;
 }
