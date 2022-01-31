@@ -7,12 +7,7 @@
  * This program should provide the entropy of the text, 
  * as estimated by the model.
 */
-/*
-struct stats{
-    std::string sequence;
-    unsigned int count=0;
-};
-*/
+
 // g++ test_fcm.cpp fcm.cpp -o exec_fcm
 
 int main(int argc, char *argv[])
