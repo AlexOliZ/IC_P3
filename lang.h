@@ -11,6 +11,7 @@
 #include <set>
 #include "fcm.h"
 #define NUM_LANGS 11
+#define NUM_CHARS 122
 class lang
 {
     public:

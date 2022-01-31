@@ -16,6 +16,6 @@ int main(int argc, char *argv[])
     
     lang lang_test = lang((char*)fname.data(),NULL,k,alpha);
     char* table_lang = lang_test.find_lang((char*)fname.data());
-    cout << "compression_size -> " << table_lang << endl;
+    cout << "language -> " << table_lang << endl;
     return 0;
 }

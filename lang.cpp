@@ -119,10 +119,11 @@ double lang::check_compression(char* fname, bool read_sequences)
         {
             //cout << char_iter -> second << endl;
             if(table[string_iter->first].find(char_iter->first) != table[string_iter->first].end())
-                pi = ((double)table[string_iter->first][char_iter->first]+alpha)/((double)sum_table+3*alpha);
+                pi = ((double)table[string_iter->first][char_iter->first]+alpha)/((double)sum_table+NUM_CHARS*alpha);
             else
                 pi = alpha/(3*alpha+(double)sum_table);
-            
+            //cout << pi << endl;
+            //if(pi>0 && pi<=1)
             global_entropy -= log2(pi);
         }
     }
@@ -144,7 +145,7 @@ char* lang::find_lang(char*fname)
         table_file = (char*)path.data();
         cout << table_file << endl;
         compression_size = check_compression(fname,false);
-        cout << "compression: " << compression_size;
+        cout << "compression: " << compression_size << endl;
         if(compression_size<min_size)
         {
             min_size = compression_size;
@@ -224,6 +225,7 @@ unsigned int lang::check_compression_size(char* fname)
         // space -> 0x20            A-Z                                 a-z                     letras com acentos
         if(byte == '\n' || byte == '\t' || byte == '\r')
             byte = 0x20;
+            // 3 + 26 + 26 + 64
         if(byte==0x27 || byte==0x2D || byte==0x20 || (byte >= 0x41 && byte <= 0x5A) || (byte >= 0x61 && byte <= 0x7A) || (byte >= 0xC0)){
             aux_sequence = "";
             for(i=1; i<=k; i++)
@@ -262,7 +264,7 @@ unsigned int lang::check_compression_size(char* fname)
         {
             //cout << char_iter -> second << endl;
             if(sequence_table[string_iter->first].find(char_iter->first) != sequence_table[string_iter->first].end())
-                pi = ((double)sequence_table[string_iter->first][char_iter->first]+alpha)/((double)sum_table+3*alpha);
+                pi = ((double)sequence_table[string_iter->first][char_iter->first]+alpha)/((double)sum_table+NUM_CHARS*alpha);
             else
                 pi = alpha/(3*alpha+(double)sum_table);
             
