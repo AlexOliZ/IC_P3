@@ -226,7 +226,7 @@ unsigned int lang::check_compression_size(char* fname)
         // space -> 0x20            A-Z                                 a-z                     letras com acentos
         if(byte == '\n' || byte == '\t' || byte == '\r')
             byte = 0x20;
-            // 3 + 26 + 26 + 64
+
         if(byte==0x27 || byte==0x2D || byte==0x20 || (byte >= 0x41 && byte <= 0x5A) || (byte >= 0x61 && byte <= 0x7A) || (byte >= 0xC0)){
             aux_sequence = "";
             for(i=1; i<=k; i++)
