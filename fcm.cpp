@@ -40,7 +40,7 @@ void fcm::read_table(char* fname)
         
         }
         sequence_table[aux_sequence][letter] = atoi(number.data());
-        //cout << (aux_sequence + " " + letter + " " + number) << endl;
+        cout << (aux_sequence + " " + letter + " " + number) << endl;
         //readtable.read(&byte,1);
     }
     
