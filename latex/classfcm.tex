@@ -6,7 +6,7 @@
 \mbox{\hyperlink{classfcm_a317031208df721f167c9db899ac082d1}{fcm}} (unsigned int k, int alpha, std\+::string language)
 \begin{DoxyCompactList}\small\item\em Construct a new fcm object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classfcm_a00550774b6129eef40753117023062d3}{read\+\_\+table}} (char $\ast$fname)
-\begin{DoxyCompactList}\small\item\em read the created table \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em read information about a existing table of a language and order K. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -22,11 +22,11 @@ Construct a new fcm object.
 
 
 \begin{DoxyParams}{Parameters}
-{\em k} & k value as argument \\
+{\em k} & order that will be used in the construction of the model. \\
 \hline
-{\em alpha} & alpha value as argument \\
+{\em alpha} & alpha value. \\
 \hline
-{\em language} & file language \\
+{\em language} & name of the language (one of the language directories). \\
 \hline
 \end{DoxyParams}
 
@@ -40,11 +40,11 @@ Construct a new fcm object.
 
 
 
-read the created table 
+read information about a existing table of a language and order K. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em fname} & filename \\
+{\em fname} & name of the file that contains the table about a language. \\
 \hline
 \end{DoxyParams}
 

@@ -12,6 +12,7 @@ void fcm::read_table(char* fname)
     string aux_sequence;
     map<string,map<char,unsigned int>> sequence_table;
     // set<char> letters_list;
+    cout << "filename -> " << fname << endl;
     ifstream readtable = ifstream((char*)filename.data(), ios::binary);
     while(1)
     {
@@ -40,7 +41,7 @@ void fcm::read_table(char* fname)
         
         }
         sequence_table[aux_sequence][letter] = atoi(number.data());
-        cout << (aux_sequence + " " + letter + " " + number) << endl;
+        //cout << (aux_sequence + " " + letter + " " + number) << endl;
         //readtable.read(&byte,1);
     }
     

@@ -18,8 +18,8 @@ class lang
     /**
      * @brief Construct a new lang object
      * 
-     * @param file filename
-     * @param table table to read
+     * @param file name of the file that will be compared with the table.
+     * @param table file of the table that contains information about a language with order k.
      * @param k k value as argument
      * @param a alpha value as argument
      */
@@ -32,23 +32,23 @@ class lang
     };
     lang(){};
     /**
-     * @brief check the compression size
+     * @brief check the compression size, this function reads the table, the file and checks the compression size.
      * 
-     * @param fname filename
+     * @param fname name of the file that will be compared with the table.
      * @return unsigned int 
      */
     unsigned int check_compression_size(char* fname);
     /**
-     * @brief find the language
+     * @brief find the language of the file given to the function.
      * 
-     * @param fname filename
+     * @param fname name of the file that will be compared with the table.
      * @return char* 
      */
     char* find_lang(char* fname);
     /**
      * @brief Set the file object
      * 
-     * @param filename filename
+     * @param filename name of the file that will be compared with the table.
      * @return true 
      * @return false 
      */
@@ -60,15 +60,16 @@ class lang
      */
     void get_sequences(char* fname);
     /**
-     * @brief read the created table
+     * @brief read the created table from the file.
      * 
      */
     void read_table();
     /**
      * @brief 
      * 
-     * @param fname filename
-     * @param read_sequences read the sequences
+     * @param fname name of the file that will be compared with the table.
+     * @param read_sequences if true the function will read the text file given as argument to the function, 
+     * if false the function will the information in the file_info.
      * @return double 
      */
     double check_compression(char* fname, bool read_sequences);

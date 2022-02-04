@@ -16,9 +16,9 @@ class fcm
     /**
      * @brief Construct a new fcm object
      * 
-     * @param k k value as argument
-     * @param alpha alpha value as argument
-     * @param language file language
+     * @param k order that will be used in the construction of the model.
+     * @param alpha alpha value.
+     * @param language name of the language (one of the language directories).
      */
     fcm(unsigned int k, int alpha, std::string language)
     {
@@ -29,14 +29,12 @@ class fcm
         std::ofstream writetable;
         writetable = std::ofstream((char*)filename.data(), std::ios::binary|std::ios_base::app);
         writetable.close();
-        
-        //std::cout << filename << std::endl;
     };
     fcm(){};
     /**
-     * @brief read the created table
+     * @brief read information about a existing table of a language and order K.
      * 
-     * @param fname filename
+     * @param fname name of the file that contains the table about a language.
      */
     void read_table(char* fname);
 

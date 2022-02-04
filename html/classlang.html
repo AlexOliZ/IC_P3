@@ -95,10 +95,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a66eff1538c0f7100d31955ad32a25914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new lang object.  <a href="classlang.html#a66eff1538c0f7100d31955ad32a25914">More...</a><br /></td></tr>
 <tr class="separator:a66eff1538c0f7100d31955ad32a25914"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2597f45a87f519f8129ef93b9b9ed69c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlang.html#a2597f45a87f519f8129ef93b9b9ed69c">check_compression_size</a> (char *fname)</td></tr>
-<tr class="memdesc:a2597f45a87f519f8129ef93b9b9ed69c"><td class="mdescLeft">&#160;</td><td class="mdescRight">check the compression size  <a href="classlang.html#a2597f45a87f519f8129ef93b9b9ed69c">More...</a><br /></td></tr>
+<tr class="memdesc:a2597f45a87f519f8129ef93b9b9ed69c"><td class="mdescLeft">&#160;</td><td class="mdescRight">check the compression size, this function reads the table, the file and checks the compression size.  <a href="classlang.html#a2597f45a87f519f8129ef93b9b9ed69c">More...</a><br /></td></tr>
 <tr class="separator:a2597f45a87f519f8129ef93b9b9ed69c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5028da3aebf23d567eff15a329450bf1"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlang.html#a5028da3aebf23d567eff15a329450bf1">find_lang</a> (char *fname)</td></tr>
-<tr class="memdesc:a5028da3aebf23d567eff15a329450bf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">find the language  <a href="classlang.html#a5028da3aebf23d567eff15a329450bf1">More...</a><br /></td></tr>
+<tr class="memdesc:a5028da3aebf23d567eff15a329450bf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">find the language of the file given to the function.  <a href="classlang.html#a5028da3aebf23d567eff15a329450bf1">More...</a><br /></td></tr>
 <tr class="separator:a5028da3aebf23d567eff15a329450bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8b3f21f0fe6c6f7418782cae263278d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlang.html#af8b3f21f0fe6c6f7418782cae263278d">set_file</a> (char *filename)</td></tr>
 <tr class="memdesc:af8b3f21f0fe6c6f7418782cae263278d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the file object.  <a href="classlang.html#af8b3f21f0fe6c6f7418782cae263278d">More...</a><br /></td></tr>
@@ -107,7 +107,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:afcf95f852f14fd18810311ba0680101b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the sequences object.  <a href="classlang.html#afcf95f852f14fd18810311ba0680101b">More...</a><br /></td></tr>
 <tr class="separator:afcf95f852f14fd18810311ba0680101b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10eb67df5a16a8699aebae6eb3c22079"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlang.html#a10eb67df5a16a8699aebae6eb3c22079">read_table</a> ()</td></tr>
-<tr class="memdesc:a10eb67df5a16a8699aebae6eb3c22079"><td class="mdescLeft">&#160;</td><td class="mdescRight">read the created table  <a href="classlang.html#a10eb67df5a16a8699aebae6eb3c22079">More...</a><br /></td></tr>
+<tr class="memdesc:a10eb67df5a16a8699aebae6eb3c22079"><td class="mdescLeft">&#160;</td><td class="mdescRight">read the created table from the file.  <a href="classlang.html#a10eb67df5a16a8699aebae6eb3c22079">More...</a><br /></td></tr>
 <tr class="separator:a10eb67df5a16a8699aebae6eb3c22079"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c9ca6af4e0eb8060a980e5d6f42749b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlang.html#a1c9ca6af4e0eb8060a980e5d6f42749b">check_compression</a> (char *fname, bool read_sequences)</td></tr>
 <tr class="separator:a1c9ca6af4e0eb8060a980e5d6f42749b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,8 +162,8 @@ Public Member Functions</h2></td></tr>
 <p>Construct a new lang object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">file</td><td>filename </td></tr>
-    <tr><td class="paramname">table</td><td>table to read </td></tr>
+    <tr><td class="paramname">file</td><td>name of the file that will be compared with the table. </td></tr>
+    <tr><td class="paramname">table</td><td>file of the table that contains information about a language with order k. </td></tr>
     <tr><td class="paramname">k</td><td>k value as argument </td></tr>
     <tr><td class="paramname">a</td><td>alpha value as argument </td></tr>
   </table>
@@ -200,8 +200,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fname</td><td>filename </td></tr>
-    <tr><td class="paramname">read_sequences</td><td>read the sequences </td></tr>
+    <tr><td class="paramname">fname</td><td>name of the file that will be compared with the table. </td></tr>
+    <tr><td class="paramname">read_sequences</td><td>if true the function will read the text file given as argument to the function, if false the function will the information in the file_info. </td></tr>
   </table>
   </dd>
 </dl>
@@ -225,10 +225,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>check the compression size </p>
+<p>check the compression size, this function reads the table, the file and checks the compression size. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fname</td><td>filename </td></tr>
+    <tr><td class="paramname">fname</td><td>name of the file that will be compared with the table. </td></tr>
   </table>
   </dd>
 </dl>
@@ -252,10 +252,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>find the language </p>
+<p>find the language of the file given to the function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fname</td><td>filename </td></tr>
+    <tr><td class="paramname">fname</td><td>name of the file that will be compared with the table. </td></tr>
   </table>
   </dd>
 </dl>
@@ -304,7 +304,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>read the created table </p>
+<p>read the created table from the file. </p>
 
 </div>
 </div>
@@ -327,7 +327,7 @@ Public Member Functions</h2></td></tr>
 <p>Set the file object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td>filename </td></tr>
+    <tr><td class="paramname">filename</td><td>name of the file that will be compared with the table. </td></tr>
   </table>
   </dd>
 </dl>

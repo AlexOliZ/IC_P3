@@ -28,9 +28,9 @@ make fcm.o
 
 ./exec_fcm txt1.utf8 italian 3 0
 #./exec_fcm txt2.it italian 3 0
+./exec_fcm txt2.txt italian 3 0
 ./exec_fcm txt3.txt italian 3 0
 ./exec_fcm txt4.txt italian 3 0
-./exec_fcm txt5.txt italian 3 0
 
 ./exec_fcm txt1.utf8 german 3 0
 ./exec_fcm txt1.utf8 dutch 3 0

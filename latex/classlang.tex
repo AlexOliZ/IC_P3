@@ -6,15 +6,15 @@
 \mbox{\hyperlink{classlang_a66eff1538c0f7100d31955ad32a25914}{lang}} (char $\ast$file, char $\ast$table, unsigned int k, double a)
 \begin{DoxyCompactList}\small\item\em Construct a new lang object. \end{DoxyCompactList}\item 
 unsigned int \mbox{\hyperlink{classlang_a2597f45a87f519f8129ef93b9b9ed69c}{check\+\_\+compression\+\_\+size}} (char $\ast$fname)
-\begin{DoxyCompactList}\small\item\em check the compression size \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em check the compression size, this function reads the table, the file and checks the compression size. \end{DoxyCompactList}\item 
 char $\ast$ \mbox{\hyperlink{classlang_a5028da3aebf23d567eff15a329450bf1}{find\+\_\+lang}} (char $\ast$fname)
-\begin{DoxyCompactList}\small\item\em find the language \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em find the language of the file given to the function. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classlang_af8b3f21f0fe6c6f7418782cae263278d}{set\+\_\+file}} (char $\ast$filename)
 \begin{DoxyCompactList}\small\item\em Set the file object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classlang_afcf95f852f14fd18810311ba0680101b}{get\+\_\+sequences}} (char $\ast$fname)
 \begin{DoxyCompactList}\small\item\em Get the sequences object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classlang_a10eb67df5a16a8699aebae6eb3c22079}{read\+\_\+table}} ()
-\begin{DoxyCompactList}\small\item\em read the created table \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em read the created table from the file. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classlang_a1c9ca6af4e0eb8060a980e5d6f42749b}{check\+\_\+compression}} (char $\ast$fname, bool read\+\_\+sequences)
 \end{DoxyCompactItemize}
 
@@ -32,9 +32,9 @@ Construct a new lang object.
 
 
 \begin{DoxyParams}{Parameters}
-{\em file} & filename \\
+{\em file} & name of the file that will be compared with the table. \\
 \hline
-{\em table} & table to read \\
+{\em table} & file of the table that contains information about a language with order k. \\
 \hline
 {\em k} & k value as argument \\
 \hline
@@ -52,9 +52,9 @@ Construct a new lang object.
 
 
 \begin{DoxyParams}{Parameters}
-{\em fname} & filename \\
+{\em fname} & name of the file that will be compared with the table. \\
 \hline
-{\em read\+\_\+sequences} & read the sequences \\
+{\em read\+\_\+sequences} & if true the function will read the text file given as argument to the function, if false the function will the information in the file\+\_\+info. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -68,11 +68,11 @@ double
 
 
 
-check the compression size 
+check the compression size, this function reads the table, the file and checks the compression size. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em fname} & filename \\
+{\em fname} & name of the file that will be compared with the table. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -86,11 +86,11 @@ unsigned int
 
 
 
-find the language 
+find the language of the file given to the function. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em fname} & filename \\
+{\em fname} & name of the file that will be compared with the table. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -119,7 +119,7 @@ Get the sequences object.
 
 
 
-read the created table 
+read the created table from the file. 
 
 \mbox{\Hypertarget{classlang_af8b3f21f0fe6c6f7418782cae263278d}\label{classlang_af8b3f21f0fe6c6f7418782cae263278d}} 
 \index{lang@{lang}!set\_file@{set\_file}}
@@ -133,7 +133,7 @@ Set the file object.
 
 
 \begin{DoxyParams}{Parameters}
-{\em filename} & filename \\
+{\em filename} & name of the file that will be compared with the table. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

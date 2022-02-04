@@ -95,7 +95,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a317031208df721f167c9db899ac082d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new fcm object.  <a href="classfcm.html#a317031208df721f167c9db899ac082d1">More...</a><br /></td></tr>
 <tr class="separator:a317031208df721f167c9db899ac082d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00550774b6129eef40753117023062d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfcm.html#a00550774b6129eef40753117023062d3">read_table</a> (char *fname)</td></tr>
-<tr class="memdesc:a00550774b6129eef40753117023062d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">read the created table  <a href="classfcm.html#a00550774b6129eef40753117023062d3">More...</a><br /></td></tr>
+<tr class="memdesc:a00550774b6129eef40753117023062d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">read information about a existing table of a language and order K.  <a href="classfcm.html#a00550774b6129eef40753117023062d3">More...</a><br /></td></tr>
 <tr class="separator:a00550774b6129eef40753117023062d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -142,9 +142,9 @@ Public Member Functions</h2></td></tr>
 <p>Construct a new fcm object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">k</td><td>k value as argument </td></tr>
-    <tr><td class="paramname">alpha</td><td>alpha value as argument </td></tr>
-    <tr><td class="paramname">language</td><td>file language </td></tr>
+    <tr><td class="paramname">k</td><td>order that will be used in the construction of the model. </td></tr>
+    <tr><td class="paramname">alpha</td><td>alpha value. </td></tr>
+    <tr><td class="paramname">language</td><td>name of the language (one of the language directories). </td></tr>
   </table>
   </dd>
 </dl>
@@ -168,10 +168,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>read the created table </p>
+<p>read information about a existing table of a language and order K. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fname</td><td>filename </td></tr>
+    <tr><td class="paramname">fname</td><td>name of the file that contains the table about a language. </td></tr>
   </table>
   </dd>
 </dl>
