@@ -3,27 +3,144 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classlang_a66eff1538c0f7100d31955ad32a25914}\label{classlang_a66eff1538c0f7100d31955ad32a25914}} 
-{\bfseries lang} (char $\ast$file, char $\ast$table, unsigned int k, double a)
-\item 
-\mbox{\Hypertarget{classlang_a2597f45a87f519f8129ef93b9b9ed69c}\label{classlang_a2597f45a87f519f8129ef93b9b9ed69c}} 
-unsigned int {\bfseries check\+\_\+compression\+\_\+size} (char $\ast$fname)
-\item 
-\mbox{\Hypertarget{classlang_a5028da3aebf23d567eff15a329450bf1}\label{classlang_a5028da3aebf23d567eff15a329450bf1}} 
-char $\ast$ {\bfseries find\+\_\+lang} (char $\ast$fname)
-\item 
-\mbox{\Hypertarget{classlang_af8b3f21f0fe6c6f7418782cae263278d}\label{classlang_af8b3f21f0fe6c6f7418782cae263278d}} 
-bool {\bfseries set\+\_\+file} (char $\ast$filename)
-\item 
-\mbox{\Hypertarget{classlang_afcf95f852f14fd18810311ba0680101b}\label{classlang_afcf95f852f14fd18810311ba0680101b}} 
-void {\bfseries get\+\_\+sequences} (char $\ast$fname)
-\item 
-\mbox{\Hypertarget{classlang_a10eb67df5a16a8699aebae6eb3c22079}\label{classlang_a10eb67df5a16a8699aebae6eb3c22079}} 
-void {\bfseries read\+\_\+table} ()
-\item 
-\mbox{\Hypertarget{classlang_a1c9ca6af4e0eb8060a980e5d6f42749b}\label{classlang_a1c9ca6af4e0eb8060a980e5d6f42749b}} 
-double {\bfseries check\+\_\+compression} (char $\ast$fname, bool read\+\_\+sequences)
+\mbox{\hyperlink{classlang_a66eff1538c0f7100d31955ad32a25914}{lang}} (char $\ast$file, char $\ast$table, unsigned int k, double a)
+\begin{DoxyCompactList}\small\item\em Construct a new lang object. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classlang_a2597f45a87f519f8129ef93b9b9ed69c}{check\+\_\+compression\+\_\+size}} (char $\ast$fname)
+\begin{DoxyCompactList}\small\item\em check the compression size \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{classlang_a5028da3aebf23d567eff15a329450bf1}{find\+\_\+lang}} (char $\ast$fname)
+\begin{DoxyCompactList}\small\item\em find the language \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classlang_af8b3f21f0fe6c6f7418782cae263278d}{set\+\_\+file}} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Set the file object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classlang_afcf95f852f14fd18810311ba0680101b}{get\+\_\+sequences}} (char $\ast$fname)
+\begin{DoxyCompactList}\small\item\em Get the sequences object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classlang_a10eb67df5a16a8699aebae6eb3c22079}{read\+\_\+table}} ()
+\begin{DoxyCompactList}\small\item\em read the created table \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classlang_a1c9ca6af4e0eb8060a980e5d6f42749b}{check\+\_\+compression}} (char $\ast$fname, bool read\+\_\+sequences)
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlang_a66eff1538c0f7100d31955ad32a25914}\label{classlang_a66eff1538c0f7100d31955ad32a25914}} 
+\index{lang@{lang}!lang@{lang}}
+\index{lang@{lang}!lang@{lang}}
+\doxysubsubsection{\texorpdfstring{lang()}{lang()}}
+{\footnotesize\ttfamily lang\+::lang (\begin{DoxyParamCaption}\item[{char $\ast$}]{file,  }\item[{char $\ast$}]{table,  }\item[{unsigned int}]{k,  }\item[{double}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new lang object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & filename \\
+\hline
+{\em table} & table to read \\
+\hline
+{\em k} & k value as argument \\
+\hline
+{\em a} & alpha value as argument \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlang_a1c9ca6af4e0eb8060a980e5d6f42749b}\label{classlang_a1c9ca6af4e0eb8060a980e5d6f42749b}} 
+\index{lang@{lang}!check\_compression@{check\_compression}}
+\index{check\_compression@{check\_compression}!lang@{lang}}
+\doxysubsubsection{\texorpdfstring{check\_compression()}{check\_compression()}}
+{\footnotesize\ttfamily double lang\+::check\+\_\+compression (\begin{DoxyParamCaption}\item[{char $\ast$}]{fname,  }\item[{bool}]{read\+\_\+sequences }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & filename \\
+\hline
+{\em read\+\_\+sequences} & read the sequences \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlang_a2597f45a87f519f8129ef93b9b9ed69c}\label{classlang_a2597f45a87f519f8129ef93b9b9ed69c}} 
+\index{lang@{lang}!check\_compression\_size@{check\_compression\_size}}
+\index{check\_compression\_size@{check\_compression\_size}!lang@{lang}}
+\doxysubsubsection{\texorpdfstring{check\_compression\_size()}{check\_compression\_size()}}
+{\footnotesize\ttfamily unsigned int lang\+::check\+\_\+compression\+\_\+size (\begin{DoxyParamCaption}\item[{char $\ast$}]{fname }\end{DoxyParamCaption})}
+
+
+
+check the compression size 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlang_a5028da3aebf23d567eff15a329450bf1}\label{classlang_a5028da3aebf23d567eff15a329450bf1}} 
+\index{lang@{lang}!find\_lang@{find\_lang}}
+\index{find\_lang@{find\_lang}!lang@{lang}}
+\doxysubsubsection{\texorpdfstring{find\_lang()}{find\_lang()}}
+{\footnotesize\ttfamily char $\ast$ lang\+::find\+\_\+lang (\begin{DoxyParamCaption}\item[{char $\ast$}]{fname }\end{DoxyParamCaption})}
+
+
+
+find the language 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlang_afcf95f852f14fd18810311ba0680101b}\label{classlang_afcf95f852f14fd18810311ba0680101b}} 
+\index{lang@{lang}!get\_sequences@{get\_sequences}}
+\index{get\_sequences@{get\_sequences}!lang@{lang}}
+\doxysubsubsection{\texorpdfstring{get\_sequences()}{get\_sequences()}}
+{\footnotesize\ttfamily void lang\+::get\+\_\+sequences (\begin{DoxyParamCaption}\item[{char $\ast$}]{fname }\end{DoxyParamCaption})}
+
+
+
+Get the sequences object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & filename \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classlang_a10eb67df5a16a8699aebae6eb3c22079}\label{classlang_a10eb67df5a16a8699aebae6eb3c22079}} 
+\index{lang@{lang}!read\_table@{read\_table}}
+\index{read\_table@{read\_table}!lang@{lang}}
+\doxysubsubsection{\texorpdfstring{read\_table()}{read\_table()}}
+{\footnotesize\ttfamily void lang\+::read\+\_\+table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+read the created table 
+
+\mbox{\Hypertarget{classlang_af8b3f21f0fe6c6f7418782cae263278d}\label{classlang_af8b3f21f0fe6c6f7418782cae263278d}} 
+\index{lang@{lang}!set\_file@{set\_file}}
+\index{set\_file@{set\_file}!lang@{lang}}
+\doxysubsubsection{\texorpdfstring{set\_file()}{set\_file()}}
+{\footnotesize\ttfamily bool lang\+::set\+\_\+file (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Set the file object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

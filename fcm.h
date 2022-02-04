@@ -13,6 +13,13 @@
 class fcm
 {
     public:
+    /**
+     * @brief Construct a new fcm object
+     * 
+     * @param k k value as argument
+     * @param alpha alpha value as argument
+     * @param language file language
+     */
     fcm(unsigned int k, int alpha, std::string language)
     {
         this->k = k;
@@ -26,7 +33,11 @@ class fcm
         //std::cout << filename << std::endl;
     };
     fcm(){};
-
+    /**
+     * @brief read the created table
+     * 
+     * @param fname filename
+     */
     void read_table(char* fname);
 
     private:
