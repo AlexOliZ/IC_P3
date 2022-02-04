@@ -118,13 +118,10 @@ double lang::check_compression(char* fname, bool read_sequences)
         }
         for(map<char,unsigned int>::iterator char_iter = file_info[string_iter->first].begin(); char_iter != file_info[string_iter->first].end(); ++char_iter)
         {
-            //cout << char_iter -> second << endl;
             if(table[string_iter->first].find(char_iter->first) != table[string_iter->first].end())
                 pi = ((double)table[string_iter->first][char_iter->first]+alpha)/((double)sum_table+NUM_CHARS*alpha);
             else
                 pi = alpha/(NUM_CHARS*alpha+(double)sum_table);
-            //cout << pi << endl;
-            //if(pi>0 && pi<=1)
             global_entropy -= log2(pi);
         }
     }
@@ -173,7 +170,6 @@ unsigned int lang::check_compression_size(char* fname)
     }
     
     map<string,map<char,unsigned int>> sequence_table;
-    //map<char,unsigned int> letters_count;
     // ler a tabela do ficheiro
     while(1)
     {
@@ -248,9 +244,7 @@ unsigned int lang::check_compression_size(char* fname)
             count_seq ++;
         }
     }
-    //for(map<string,map<char,unsigned int>>::iterator string_iter = sequence_table.begin(); string_iter != sequence_table.end(); ++string_iter)
-    //    for(map<char,unsigned int>::iterator char_iter = sequence_table[string_iter->first].begin(); char_iter != sequence_table[string_iter->first].end(); ++char_iter)
-    //        cout << string_iter -> first << " " << char_iter -> first << " " << char_iter->second << endl;
+
     double global_entropy = 0;
     unsigned int sum_table;
     double pi;
@@ -263,50 +257,15 @@ unsigned int lang::check_compression_size(char* fname)
         }
         for(map<char,unsigned int>::iterator char_iter = file_table[string_iter->first].begin(); char_iter != file_table[string_iter->first].end(); ++char_iter)
         {
-            //cout << char_iter -> second << endl;
             if(sequence_table[string_iter->first].find(char_iter->first) != sequence_table[string_iter->first].end())
                 pi = ((double)sequence_table[string_iter->first][char_iter->first]+alpha)/((double)sum_table+NUM_CHARS*alpha);
             else
-                pi = alpha/(NUM_CHARS*alpha+(double)sum_table);
+                pi = alpha/(NUM_CHARS*alpha+(double)sum_table); 
             
-            //if(pi>1 || pi<0)
-            //    cout << pi << endl;
             global_entropy -= log2(pi);
         }
     }
     
-    //cout << global_entropy << endl;
-    /*
-    double compression_size = 0,prob_ctx,local_entropy,global_entropy=0;
-    unsigned int sum_table,count_ctx;
-    for(map<string,map<char,unsigned int>>::iterator string_iter = file_table.begin(); string_iter != file_table.end(); ++string_iter)
-    {
-        //  (N(context|letter)+alpha)/(sum(all_context|letter)+alpha*3)
-        count_ctx = 0;
-        sum_table = 0;
-        local_entropy = 0;
-
-        for(map<char,unsigned int>::iterator char_iter = file_table[string_iter->first].begin(); char_iter != file_table[string_iter->first].end(); ++char_iter)
-        {
-            count_ctx += char_iter->second;
-        }
-        //cout <<"str:" << string_iter -> first << endl;
-        for(map<char,unsigned int>::iterator char_iter = sequence_table[string_iter->first].begin(); char_iter != sequence_table[string_iter->first].end(); ++char_iter)
-        {
-            //cout <<"ITER: " << char_iter->second << endl;
-            sum_table += char_iter->second;
-        }
-        //cout << "sum: " << sum_table << endl;
-        for(map<char,unsigned int>::iterator char_iter = sequence_table[string_iter->first].begin(); char_iter != sequence_table[string_iter->first].end(); ++char_iter)
-        {
-            //cout <<"val " <<char_iter->second << endl;
-            prob_ctx = ((double)(char_iter -> second + alpha)/((double)(sum_table + 3*alpha)));
-            local_entropy -= prob_ctx*log2(prob_ctx);
-        }
-        global_entropy += local_entropy * ((double)count_ctx/(double)count_seq);
-        //cout << global_entropy << endl;
-    }
-    */
     cout << global_entropy << endl;
     cout << count_seq << endl;
     return global_entropy;

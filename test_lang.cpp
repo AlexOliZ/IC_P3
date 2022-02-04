@@ -1,5 +1,5 @@
 #include "lang.h"
-// ./exec_lang ./pt/txt1.utf8  3 0.01
+// ./exec_lang ./pt/txt1.utf8 ./pt/table_3.txt 3 0.01
 int main(int argc, char *argv[])
 {
     using namespace std;
