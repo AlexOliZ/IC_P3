@@ -3,18 +3,18 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classfcm_a317031208df721f167c9db899ac082d1}{fcm}} (unsigned int k, int alpha, std\+::string language)
+\mbox{\hyperlink{classfcm_a558a9422e80e67ccf115324ccf11e248}{fcm}} (unsigned int k, double alpha, std\+::string language)
 \begin{DoxyCompactList}\small\item\em Construct a new fcm object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classfcm_a00550774b6129eef40753117023062d3}{read\+\_\+table}} (char $\ast$fname)
+double \mbox{\hyperlink{classfcm_a1ce3d75fedb5796ecfa52ea628eec822}{read\+\_\+table}} (char $\ast$fname)
 \begin{DoxyCompactList}\small\item\em read information about a existing table of a language and order K. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classfcm_a317031208df721f167c9db899ac082d1}\label{classfcm_a317031208df721f167c9db899ac082d1}} 
+\mbox{\Hypertarget{classfcm_a558a9422e80e67ccf115324ccf11e248}\label{classfcm_a558a9422e80e67ccf115324ccf11e248}} 
 \index{fcm@{fcm}!fcm@{fcm}}
 \index{fcm@{fcm}!fcm@{fcm}}
 \doxysubsubsection{\texorpdfstring{fcm()}{fcm()}}
-{\footnotesize\ttfamily fcm\+::fcm (\begin{DoxyParamCaption}\item[{unsigned int}]{k,  }\item[{int}]{alpha,  }\item[{std\+::string}]{language }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily fcm\+::fcm (\begin{DoxyParamCaption}\item[{unsigned int}]{k,  }\item[{double}]{alpha,  }\item[{std\+::string}]{language }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -32,11 +32,11 @@ Construct a new fcm object.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classfcm_a00550774b6129eef40753117023062d3}\label{classfcm_a00550774b6129eef40753117023062d3}} 
+\mbox{\Hypertarget{classfcm_a1ce3d75fedb5796ecfa52ea628eec822}\label{classfcm_a1ce3d75fedb5796ecfa52ea628eec822}} 
 \index{fcm@{fcm}!read\_table@{read\_table}}
 \index{read\_table@{read\_table}!fcm@{fcm}}
 \doxysubsubsection{\texorpdfstring{read\_table()}{read\_table()}}
-{\footnotesize\ttfamily void fcm\+::read\+\_\+table (\begin{DoxyParamCaption}\item[{char $\ast$}]{fname }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double fcm\+::read\+\_\+table (\begin{DoxyParamCaption}\item[{char $\ast$}]{fname }\end{DoxyParamCaption})}
 
 
 
@@ -47,6 +47,9 @@ read information about a existing table of a language and order K.
 {\em fname} & name of the file that contains the table about a language. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+entropy; 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

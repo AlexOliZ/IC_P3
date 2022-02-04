@@ -1,8 +1,9 @@
 #include "fcm.h"
 
 using namespace std;
+#define NUM_CHARS 122
 
-void fcm::read_table(char* fname)
+double fcm::read_table(char* fname)
 {
     // antes de começar a ler o novo histograma
     // dar load ao ficheiro se tiver a tabela escrita
@@ -11,15 +12,14 @@ void fcm::read_table(char* fname)
     string number;
     string aux_sequence;
     map<string,map<char,unsigned int>> sequence_table;
-    // set<char> letters_list;
-    cout << "filename -> " << fname << endl;
+    map<string,map<char,unsigned int>> file_info;
     ifstream readtable = ifstream((char*)filename.data(), ios::binary);
+
     while(1)
     {
         if(readtable.eof()){
              break;
         }
-        //cout << readtable.good() << endl;
         aux_sequence = "";
         number = "";
         if(readtable.peek() == -1){
@@ -38,11 +38,9 @@ void fcm::read_table(char* fname)
             number += byte;
             if(readtable.eof())
                 break;
-        
         }
         sequence_table[aux_sequence][letter] = atoi(number.data());
         //cout << (aux_sequence + " " + letter + " " + number) << endl;
-        //readtable.read(&byte,1);
     }
     
     string path = "./"+ language + "/" +fname;
@@ -81,6 +79,15 @@ void fcm::read_table(char* fname)
                 sequence_table[aux_sequence] = map<char,unsigned int>();
                 sequence_table[aux_sequence][byte] = 1;
             }
+            if(file_info.find(aux_sequence) != file_info.end()){
+                if(file_info[aux_sequence].find(byte) != file_info[aux_sequence].end())
+                    file_info[aux_sequence][byte] += 1;
+                else
+                    file_info[aux_sequence][byte] = 1;
+            }else{
+                file_info[aux_sequence] = map<char,unsigned int>();
+                file_info[aux_sequence][byte] = 1;
+            }
             history_pointer = (history_pointer+1) % k;
             letters_history[history_pointer] = byte;
             count_seq ++;
@@ -97,12 +104,26 @@ void fcm::read_table(char* fname)
     writetable.open((char*)filename.data());
     
     cout << "___________________________" << endl;
+    double global_entropy=0,pi;
+    unsigned int sum_table;
+
     for(map<string,map<char,unsigned int>>::iterator string_iter = sequence_table.begin(); string_iter != sequence_table.end(); ++string_iter)
     {
+        sum_table = 0;
         for(map<char,unsigned int>::iterator char_iter = sequence_table[string_iter->first].begin(); char_iter != sequence_table[string_iter->first].end(); ++char_iter)
         {
             writetable << string_iter->first+ " " +char_iter->first+" " +to_string(char_iter->second) +'\n';
+            sum_table += char_iter->second;
+        }
+        for(map<char,unsigned int>::iterator char_iter = file_info[string_iter->first].begin(); char_iter != file_info[string_iter->first].end(); ++char_iter)
+        {
+            if(sequence_table[string_iter->first].find(char_iter->first) != sequence_table[string_iter->first].end())
+                pi = ((double)sequence_table[string_iter->first][char_iter->first]+alpha)/((double)sum_table+NUM_CHARS*alpha);
+            else
+                pi = alpha/(NUM_CHARS*alpha+(double)sum_table);
+            global_entropy -= log2(pi);
         }
     }
     writetable.close();
+    return global_entropy/(double)count_seq;
 }

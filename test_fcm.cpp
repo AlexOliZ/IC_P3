@@ -27,11 +27,11 @@ int main(int argc, char *argv[])
     string fname = argv[1];
     string language = argv[2];
     // k -> order model; a -> smoothing parameter;
-    int k=atoi(argv[3]), alpha=atoi(argv[4]),i;
+    int k=atoi(argv[3]), alpha=stod(argv[4]),i;
     
     fcm fcm_table = fcm(k,alpha,language);
-    fcm_table.read_table((char*) fname.data());
-
+    double entropy = fcm_table.read_table((char*) fname.data());
+    cout << "entropy -> " << entropy << endl;
     return 0;
 }
 

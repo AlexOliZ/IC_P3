@@ -20,7 +20,7 @@ class fcm
      * @param alpha alpha value.
      * @param language name of the language (one of the language directories).
      */
-    fcm(unsigned int k, int alpha, std::string language)
+    fcm(unsigned int k, double alpha, std::string language)
     {
         this->k = k;
         this->alpha = alpha;
@@ -35,13 +35,14 @@ class fcm
      * @brief read information about a existing table of a language and order K.
      * 
      * @param fname name of the file that contains the table about a language.
+     * @returns entropy;
      */
-    void read_table(char* fname);
+    double read_table(char* fname);
 
     private:
         std::string filename;
         unsigned int k;
-        int alpha;
+        double alpha;
         std::string language;
 };
 
